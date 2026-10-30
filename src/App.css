@@ -1,0 +1,592 @@
+/* Força todo o HTML e elementos do Vite a ocuparem 100% da tela de ponta a ponta */
+#root, html, body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+/* ==========================================
+   1. LAYOUT PRINCIPAL (OCUPANDO A TELA TODA)
+   ========================================== */
+.layout-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+}
+
+/* APP CONTAINER COMPLETO (TELA TODA EXPANDIDA) */
+.app-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 40px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* GRID TRI-PROPORCIONAL ASSIMÉTRICO */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .main-layout {
+    grid-template-columns: 1fr 400px; /* Esquerda estica na tela toda, Direita fixa para cadastro */
+  }
+}
+
+/* ==========================================
+   2. CABEÇALHO (NAVBAR MODERNA)
+   ========================================== */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.navbar-container {
+  width: 100%;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  font-size: 1.8rem;
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.brand-highlight {
+  color: #7c3aed;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-item {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 4px 0;
+}
+
+.nav-item:hover, .nav-item.active {
+  color: #0f172a;
+}
+
+.nav-item.active {
+  color: #7c3aed;
+  border-bottom: 2px solid #7c3aed;
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.search-box {
+  padding: 10px 16px 10px 40px;
+  background-color: #f1f5f9;
+  border: 1px solid transparent;
+  border-radius: 99px;
+  font-size: 0.9rem;
+  width: 280px;
+  color: #0f172a !important;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.search-box:focus {
+  outline: none;
+  border-color: #7c3aed;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.user-profile {
+  width: 40px;
+  height: 40px;
+  background-color: #e2e8f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* ==========================================
+   3. APRESENTAÇÃO / BANNER DE BOAS-VINDAS
+   ========================================== */
+.welcome-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  border-radius: 20px;
+  padding: 40px;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-content {
+  max-width: 65%;
+  z-index: 2;
+}
+
+.welcome-badge {
+  background-color: rgba(124, 58, 237, 0.3);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  color: #c084fc;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.welcome-banner h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  letter-spacing: -1px;
+  color: #ffffff !important;
+}
+
+.welcome-banner p {
+  color: #94a3b8 !important;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.welcome-graphic {
+  font-size: 7rem;
+  opacity: 0.15;
+  user-select: none;
+  z-index: 1;
+}
+
+/* ==========================================
+   4. SEÇÕES E LIVROS (CARDS COM CAPAS 3D)
+   ========================================== */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-header h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a !important;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.link-ver-todos {
+  color: #7c3aed;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.populares-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.book-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.06);
+}
+
+/* ENGINE DE CAPAS FISICAS EM CSS TRIDIMENSIONAL */
+.book-cover-css {
+  height: 200px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  padding: 20px;
+  align-items: flex-end;
+  color: white;
+  overflow: hidden;
+}
+
+.cover-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  background: rgba(0,0,0,0.15);
+  z-index: 3;
+}
+
+.cover-content {
+  z-index: 2;
+  width: 100%;
+}
+
+.cover-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.2);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.cover-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 10px 0 2px 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ffffff !important;
+}
+
+.cover-author {
+  font-size: 0.8rem;
+  margin: 0;
+  opacity: 0.8;
+  color: #ffffff !important;
+}
+
+/* Gradientes das Capas baseado no Gênero */
+.capa-roxa { background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%); }
+.capa-escura { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+.capa-azul { background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%); }
+.capa-rosa { background: linear-gradient(135deg, #db2777 0%, #831843 100%); }
+.capa-padrao { background: linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%); }
+
+.book-card-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 15px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: #0f172a !important;
+}
+
+.card-author {
+  font-size: 0.85rem;
+  color: #64748b !important;
+  margin: 0;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.genre-tag {
+  background-color: #f1f5f9;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.card-rating {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ca8a04;
+}
+
+.btn-delete-text {
+  background-color: transparent;
+  color: #ef4444 !important;
+  border: 1px solid #fee2e2;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.btn-delete-text:hover {
+  background-color: #fee2e2;
+}
+
+/* ==========================================
+   5. SEÇÃO DE RESENHAS CRÍTICAS (AVALIAÇÕES)
+   ========================================== */
+.avaliacoes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .avaliacoes-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.review-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-placeholder {
+  width: 36px;
+  height: 36px;
+  background-color: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a !important;
+}
+
+.review-date {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  display: block;
+}
+
+.review-stars {
+  color: #f59e0b;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  color: #334155 !important;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+  font-style: italic;
+}
+
+.review-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+}
+
+.review-book-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #7c3aed;
+  background-color: #f5f3ff;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.review-author-tag {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* ==========================================
+   6. PAINEL DO FORMULÁRIO DE CADASTRO LATERAL
+   ========================================== */
+.form-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: 100px;
+}
+
+.form-card-header {
+  margin-bottom: 24px;
+}
+
+.form-card h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a !important;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-card h2 span {
+  color: #7c3aed;
+}
+
+.form-subtitle {
+  font-size: 0.85rem;
+  color: #64748b !important;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.livro-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155 !important;
+}
+
+/* CORREÇÃO DO TEXTO AO DIGITAR */
+.form-group input, .form-group select, .form-group textarea {
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background-color: #ffffff !important; /* Força fundo branco */
+  color: #0f172a !important; /* Força letra escura ao digitar */
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.btn-cadastrar-submit {
+  width: 100%;
+  background-color: var(--accent);
+  color: white !important;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 4px;
+}
+
+.btn-cadastrar-submit:hover {
+  background-color: var(--accent-hover);
+}
+
+  

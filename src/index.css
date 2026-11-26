@@ -1,0 +1,17 @@
+@import url('https://googleapis.com');
+
+html, body, #root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  color: #0f172a;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
